@@ -397,39 +397,29 @@ Por ejemplo, partiendo de /24 y tomando 2 bits → máscara /26:
 
 #### a) Generación de claves
 
-1. **Elegir dos primos grandes** _p_ y _q_.  
-2. Calcular \(n = p \times q\).  
-3. Calcular \(\varphi(n) = (p-1)\,(q-1)\).  
-4. Elegir un entero \(e\) tal que \(1 < e < \varphi(n)\) y \(\gcd(e,\varphi(n))=1\).  
-5. Calcular \(d\) como inverso modular de \(e\) módulo \(\varphi(n)\):  
-   \[
-   d \equiv e^{-1} \pmod{\varphi(n)}
-   \]
-6. **Clave pública** = \((e, n)\).  
-   **Clave privada** = \((d, n)\).
+1. Elegir dos números primos grandes `p` y `q`.  
+2. Calcular `n = p * q`.  
+3. Calcular `φ = (p - 1) * (q - 1)`.  
+4. Elegir un entero `e` tal que `1 < e < φ` y `gcd(e, φ) = 1`.  
+5. Calcular `d`, el inverso modular de `e` módulo `φ`: d ≡ e⁻¹ mod φ
+6.  La clave pública es `(e, n)` y la clave privada es `(d, n)`.
 
-#### b) Ejemplo numérico
+#### b) Ejemplo numérico (p = 3, q = 11, e = 7)
 
-- Elegimos \(p = 3\), \(q = 11\).  
-- \(n = 3 \times 11 = 33\).  
-- \(\varphi(n) = (3-1)\,(11-1) = 2 \times 10 = 20\).  
-- Seleccionamos \(e = 7\); \(\gcd(7,20)=1\).  
-- Calculamos \(d\) tal que \(7d \equiv 1 \pmod{20}\).  
-  \[
-    7 \times 3 = 21 \equiv 1 \pmod{20} \;\Longrightarrow\; d = 3
-  \]
-- **Clave pública** \((e,n)=(7,33)\).  
-  **Clave privada** \((d,n)=(3,33)\).
+- `p = 3`  
+- `q = 11`  
+- `n = p * q = 3 * 11 = 33`  
+- `φ = (p - 1) * (q - 1) = 2 * 10 = 20`  
+- Seleccionamos `e = 7` (verificamos `gcd(7, 20) = 1`)  
+- Calculamos `d` tal que `7 * d ≡ 1 mod 20` → `d = 3`
 
-**Cifrado** de \(M=4\):  
-\[
-C = M^e \bmod n = 4^7 \bmod 33 = 16
-\]
+**Claves resultantes**  
+- Pública: `(e, n) = (7, 33)`  
+- Privada: `(d, n) = (3, 33)`
 
-**Descifrado**:  
-\[
-M = C^d \bmod n = 16^3 \bmod 33 = 4
-\]
+**Cifrado** de `M = 4`: C = M^e mod n = 4^7 mod 33 = 16
+
+**Descifrado** de `C = 16`:  M = C^d mod n = 16^3 mod 33 = 4
 
 ---
 
