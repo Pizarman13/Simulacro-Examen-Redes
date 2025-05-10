@@ -1,5 +1,5 @@
 # Simulacro-Examen-Redes
-Redes
+Diego Pizarro Garrido
 https://github.com/Pizarman13/Simulacro-Examen-Redes.git
 
 ## Parte I: Capa de Red
