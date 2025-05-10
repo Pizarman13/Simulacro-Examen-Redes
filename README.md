@@ -212,24 +212,20 @@ Por ejemplo, partiendo de /24 y tomando 2 bits → máscara /26:
 - MSS = 1 500 bytes
 
 1. **Ventana óptima (bits)**  
-   \[
-     W = \text{BW} \times \text{RTT}
-     = 100\cdot10^6\;\text{bps} \;\times\; 0{,}05\;\text{s}
-     = 5{,}0\cdot10^6\;\text{bits}
-   \]
+   W = BW × RTT
+   = 100 × 10^6 bps × 0,05 s
+   = 5,0 × 10^6 bits
 
 2. **Ventana óptima (bytes)**  
-   \[
-     \frac{5{,}0\cdot10^6\;\text{bits}}{8}
-     = 625{,}000\;\text{bytes}
-   \]
+    W_bytes = W_bits / 8
+   = 5,0 × 10^6 bits / 8
+   = 625 000 bytes
 
 3. **Número de segmentos MSS**  
-   \[
-     \frac{625{,}000\;\text{bytes}}{1\,500\;\text{bytes/segmento}}
-     \approx 416{,}67
-     \;\;\longrightarrow\;\;\approx 417\;\text{segmentos}
-   \]
+   N = W_bytes / MSS
+   = 625 000 bytes / 1 500 bytes/segmento
+   ≈ 416,67
+   ≈ 417 segmentos
 
 > **Resultado**:  
 > - Ventana ≈ 5 000 000 bits (≈ 625 000 bytes)  
